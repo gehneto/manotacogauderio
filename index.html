@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manotaco Gauderio Comercio Ltda - Utilidades, Presentes e Artigos Diversos</title>
+
+  <meta name="description" content="Manotaco Gauderio Comércio Ltda em Chapecó-SC. Artigos de uso pessoal, produtos domésticos, utilidades e presentes. Variedade e praticidade em um só lugar.">
+
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/brnLbhVc/Logo-G-removebg-preview.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+      :root {
+          --primary-color: #d87d1c; /* laranja varejo */
+          --primary-hover-color: #b86a17;
+          --dark-bg: #101010;
+          --secondary-bg: #1a1a1a;
+          --light-text: #ffffff;
+          --secondary-text: #c7c7c7;
+          --card-bg: #222222;
+      }
+
+      *{margin:0;padding:0;box-sizing:border-box;}
+      html{scroll-behavior:smooth;}
+      body{
+          font-family:'Montserrat',sans-serif;
+          background-color:var(--dark-bg);
+          color:var(--light-text);
+          line-height:1.7;
+      }
+
+      .container{max-width:1200px;margin:auto;padding:0 2rem;}
+      h1,h2,h3{font-weight:700;margin-bottom:1rem;}
+      h2{
+          font-size:2.8rem;text-align:center;margin-bottom:3rem;
+          text-transform:uppercase;letter-spacing:2px;
+      }
+      h2 .highlight{color:var(--primary-color);}
+      section{padding:6rem 0;}
+
+      .btn{
+          display:inline-block;background:var(--primary-color);color:var(--dark-bg);
+          padding:15px 30px;border-radius:5px;text-decoration:none;font-weight:700;
+          text-transform:uppercase;transition:.3s;
+      }
+      .btn:hover{background:var(--primary-hover-color);transform:translateY(-4px);}
+
+      .header{
+          background:rgba(16,16,16,0.85);backdrop-filter:blur(10px);
+          position:fixed;width:100%;top:0;z-index:1000;padding:1rem 0;
+          border-bottom:1px solid var(--card-bg);
+      }
+
+      .navbar{display:flex;justify-content:space-between;align-items:center;}
+      .logo{font-size:2rem;font-weight:900;color:var(--light-text);text-decoration:none;}
+      .logo .highlight-dot{color:var(--primary-color);}
+
+      .nav-links{list-style:none;display:flex;}
+      .nav-links li{margin-left:2.5rem;}
+      .nav-links a{
+          color:var(--light-text);text-decoration:none;font-weight:700;
+          text-transform:uppercase;font-size:.9rem;transition:.3s;
+      }
+      .nav-links a:hover{color:var(--primary-color);}
+
+      #home{
+          min-height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          text-align:center;
+          background:
+            linear-gradient(rgba(16,16,16,.45),rgba(16,16,16,.80)),
+            url('https://images.pexels.com/photos/3965545/pexels-photo-3965545.jpeg')
+            no-repeat center center/cover;
+      }
+
+      .hero-content h1{
+          font-size:3.4rem;font-weight:900;text-transform:uppercase;margin-bottom:1rem;
+      }
+      .hero-content h1 .highlight{color:var(--primary-color);}
+      .hero-content p{
+          font-size:1.25rem;max-width:780px;margin:0 auto 2.5rem;color:var(--secondary-text);
+      }
+
+      #servicos{background-color:var(--secondary-bg);}
+      .services-grid{
+          display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;
+      }
+      .service-card{
+          background:var(--card-bg);padding:2.5rem;border-radius:8px;text-align:left;
+          border-left:5px solid transparent;transition:.3s;
+      }
+      .service-card:hover{
+          transform:translateY(-10px);border-left-color:var(--primary-color);
+          box-shadow:0 10px 25px rgba(0,0,0,.3);
+      }
+      .service-card .icon{font-size:2.5rem;color:var(--primary-color);margin-bottom:1.5rem;}
+      .service-card p{color:var(--secondary-text);}
+
+      .portfolio-grid{
+          display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+      }
+      .portfolio-item{position:relative;overflow:hidden;border-radius:8px;}
+      .portfolio-item img{width:100%;transition:.4s;}
+      .portfolio-item:hover img{transform:scale(1.1);}
+      .portfolio-overlay{
+          position:absolute;top:0;left:0;width:100%;height:100%;
+          background:rgba(0,0,0,.8);display:flex;flex-direction:column;
+          justify-content:center;align-items:center;opacity:0;transition:.4s;
+      }
+      .portfolio-item:hover .portfolio-overlay{opacity:1;}
+
+      #contato{background-color:var(--secondary-bg);}
+      .contact-form{
+          max-width:800px;margin:0 auto;background:var(--card-bg);
+          padding:3rem;border-radius:8px;
+      }
+      .form-group{margin-bottom:1.5rem;}
+      .form-group input, .form-group textarea{
+          width:100%;padding:1rem;border-radius:5px;border:1px solid #333;
+          background:var(--dark-bg);color:var(--light-text);
+          font-family:'Montserrat',sans-serif;font-size:1rem;
+      }
+      .form-group input:focus, .form-group textarea:focus{
+          outline:none;border-color:var(--primary-color);
+      }
+      .form-group textarea{resize:vertical;min-height:150px;}
+      .contact-form .btn{width:100%;padding:15px;font-size:1.1rem;}
+
+      .footer{
+          background-color:var(--dark-bg);color:var(--secondary-text);
+          padding:4rem 2rem 2rem;text-align:center;border-top:1px solid var(--card-bg);
+      }
+      .footer-logo{font-size:2rem;font-weight:900;margin-bottom:1rem;color:white;}
+      .footer-logo span{color:var(--primary-color);}
+      .footer-info{
+          margin-top:2rem;border-top:1px solid #333;padding-top:2rem;
+      }
+      .footer-info p{
+          margin-bottom:.75rem;font-size:.95rem;color:#d1d1d1;
+      }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container navbar">
+        <a href="#home" class="logo">MGC<span class="highlight-dot">.</span></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section id="home">
+    <div class="hero-content">
+        <h1>Variedade <span class="highlight">E</span> Utilidades <span class="highlight">Para o Dia a Dia</span>.</h1>
+        <p>
+            A Manotaco Gauderio oferece artigos de uso pessoal, utilidades domésticas,
+            presentes e soluções práticas para o cotidiano.
+        </p>
+        <a href="#contato" class="btn">Falar Conosco</a>
+    </div>
+</section>
+
+<section id="servicos">
+    <div class="container">
+        <h2>Nossos <span class="highlight">Serviços</span></h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-user"></i></div>
+                <h3>Artigos de Uso Pessoal</h3>
+                <p>Produtos que facilitam o dia a dia e complementam o estilo pessoal.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-home"></i></div>
+                <h3>Produtos para Casa</h3>
+                <p>Utilidades, organização e itens essenciais para o lar.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-gift"></i></div>
+                <h3>Presentes e Acessórios</h3>
+                <p>Artigos variados e opções criativas para presentes.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <div class="container">
+        <h2>Nosso <span class="highlight">Portfólio</span></h2>
+
+        <div class="portfolio-grid">
+
+            <div class="portfolio-item">
+                <img src="https://i.postimg.cc/vZsrwD0k/branding.jpg">
+                <div class="portfolio-overlay">
+                    <h3>Variedade em Produtos</h3>
+                    <p>Soluções para o lar e uso pessoal.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://i.postimg.cc/ZRG9PD2m/que-e-planejamento-est.jpg">
+                <div class="portfolio-overlay">
+                    <h3>Organização e Utilidade</h3>
+                    <p>Produtos selecionados para praticidade no dia a dia.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="https://i.postimg.cc/yYFRjs7Q/ximagem-varejo-o-guia-completo-de-estrategias-para-o-marketing-de-varejo-jpg-pagespeed-ic-8Gp-Wxv-U8.jpg">
+                <div class="portfolio-overlay">
+                    <h3>Atendimento Dedicado</h3>
+                    <p>Foco total na experiência do cliente.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="contato">
+    <div class="container">
+        <h2>Fale <span class="highlight">Conosco</span></h2>
+        <form class="contact-form" action="#" method="POST">
+
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Nome Completo" required>
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Seu E-mail" required>
+            </div>
+
+            <div class="form-group">
+                <textarea name="message" placeholder="Como podemos ajudar você?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-content">
+            <div class="footer-logo">MANOTACO GAUDERIO COMERCIO</div>
+            <p>Utilidades, presentes e soluções para o dia a dia.</p>
+
+            <div class="footer-info">
+                <p><strong>RAZÃO SOCIAL:</strong> Manotaco Gauderio Comercio Ltda</p>
+                <p><strong>CNPJ:</strong> 33.398.278/0002-07</p>
+                <p><strong>ENDEREÇO:</strong> R Itaborai, SN Pavlh 3 Stand 372 – Efapi, Chapeco-SC. CEP: 89.809-502</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Manotaco Gauderio Comercio Ltda. Todos os direitos reservados.</p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
